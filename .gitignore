@@ -1,0 +1,18 @@
+# Brainstorming mockups (visual companion)
+.superpowers/
+
+# Node / Astro (anticipated — added now so the .superpowers entry isn't lonely
+# and so the first install doesn't accidentally commit deps)
+node_modules/
+dist/
+.astro/
+
+# Env / local
+.env
+.env.local
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
