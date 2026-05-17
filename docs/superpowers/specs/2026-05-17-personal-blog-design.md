@@ -63,7 +63,7 @@ The author is a software engineer; the site must handle code snippets beautifull
 ```
 blog/
 ├── .github/workflows/deploy.yml
-├── .nvmrc                       # Node 22 LTS
+├── .nvmrc                       # Node 24 LTS
 ├── public/
 │   ├── CNAME                    # douglaslinsmeyer.com
 │   ├── favicon.svg              # placeholder serif "D"
