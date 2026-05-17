@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NoteCard from '../../components/NoteCard.astro';
+import { getAllNotes } from '../../lib/feed';
+
+const notes = await getAllNotes();
+---
+<BaseLayout title="Notes" description="Short notes.">
+  <header class="page-header">
+    <h1>Notes</h1>
+    <p class="muted">{notes.length} note{notes.length === 1 ? '' : 's'}</p>
+  </header>
+
+  {notes.length === 0 && <p>Nothing here yet.</p>}
+
+  {notes.map((entry) => <NoteCard entry={entry} />)}
+
+  <style>
+    .page-header { margin-bottom: 1.5rem; }
+    .page-header h1 { font-size: 1.75rem; margin: 0 0 0.25rem; }
+  </style>
+</BaseLayout>
