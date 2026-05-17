@@ -1,0 +1,74 @@
+---
+title: "The future of software engineering looks a lot like management"
+date: 2026-05-17
+summary: "The agentic transition isn't a productivity upgrade for software engineering — it's a phase shift into a management-shaped role most senior ICs explicitly opted out of decades ago."
+tags: ["software-engineering", "ai", "management", "agentic-development"]
+---
+
+There is a behavior I have watched repeatedly over the past year, in software engineers using agentic tools, and it took me longer than it should have to recognize what it actually was.
+
+When the agent produces something wrong, the engineer says the AI made a mistake. When the agent produces something good, the engineer says they built it. The same person, the same tool, the same session, opposite attributions depending on the outcome. When asked what it was like to work with the AI, the response is so typically a quip focusing on the mistakes, presumably eventually corrected, that an AI made instead of focusing on the their own work done to help improve the context, instruction, or bounds of the problem space such that the agent could be successful.
+
+Not to put too fine a point on it...but this is the behavior of a bad manager. Specifically, it is the behavior of the worst kind of manager. The one who ensures every failure of their reports lands at their reports' feet, and every success of their reports is claimed as their own. Anyone who has worked under that kind of manager knows exactly what it looks like, and knows it is corrosive in a way that takes years to undo.
+
+That this pattern has emerged at scale among software engineers using agentic tools is not an incidental observation. It is the clearest available signal about what the role has actually become, and about why the transition is harder than the tooling vendors and the productivity discourse have led us to believe. That said, seeing it for what it is I think can give us a hopeful path to follow.
+
+## The role needs a new name
+
+Part of the difficulty in the conversations I have been having about this transition is that the new role does not have a settled name yet. People reach for terms like "AI-augmented engineer" or "agentic developer," which are accurate as descriptions of tool usage but wrong as descriptions of the work. They imply that the new role is the next version of software engineer. It is not and I cannot stress that enough.
+
+The role we are watching emerge is closer to a fusion of product owner and software development manager than to any evolution of the engineering function. The person sets goals, defines scope, sets others up for success, evaluates outputs, prioritizes across parallel work streams, and is accountable for the result. The actual implementation is done by something else.
+
+I have started calling this role AI Agent Operator, or AI Operator for short. I am not attached to the name, and the industry will eventually settle on its own term. What I am attached to is the position that the role needs a name distinct from the engineering nomenclature, because the work is genuinely new and naming it as an evolution of engineering obscures what is actually happening. Roles without names cannot be hired for, trained toward, or aspired to. The lack of a clean name is itself slowing the transition down.
+
+For the rest of this essay I will use AI Operator. Substitute your own term if you prefer.
+
+## What the role actually is
+
+The agentic transformation is not a productivity improvement layered on top of software engineering. It is a structural shift in what the role is. The work of writing software, which used to be done by a team of specialists coordinating through process, is now done by orchestrated agents under the direction of a single person.
+
+The team has not gone away. The humans have.
+
+The work that the team used to do collectively, including specification, implementation, testing, and integration, has dissolved into agent labor. The work that used to sit above the team, including goal-setting, scope definition, performance evaluation, prioritization, and coordination across parallel streams, has hoisted up into the practitioner. That second category of work has a name in every other context. It is called management. The AI Operator is doing the cognitive work of managing a team, except the team is non-human.
+
+This predicts, with reasonable accuracy, who is going to find the transition natural and who is going to struggle.
+
+## Who adapts and why
+
+In my observations to date, the people across an organization who have adapted most readily to AI Operator work are not the senior software engineers. They are people who already held a managerial disposition, regardless of what role they were formally in.
+
+Product owners who held portfolios and made priority calls. Cloud operations specialists who coordinated dependencies across teams. Financial analysts who translated stakeholder needs into structured deliverables and judged outputs against intent. Customer-facing staff who had been quietly orchestrating cross-functional work for years without the title to match. These people picked up agentic tooling and went from local effectiveness to broad effectiveness in months, often producing artifacts that surprised the engineering function with their depth and reach.
+
+What they share is not technical background. It is the cognitive shape of their prior work. They were already doing problem articulation, performance evaluation, and coordination of parallel work streams. The tooling gave that disposition a new expressive surface. They did not need to learn a new cognitive model. They needed to learn a new set of artifacts.
+
+The senior software engineers, by contrast, often spent their careers explicitly opting out of this shape of work. Many strong individual contributors are strong individual contributors precisely because they did not want to manage or perhaps at least found it less rewarding. They wanted focused craft, sustained attention on a bounded problem, the satisfaction of producing the artifact themselves. They chose the IC track over the management track deliberately, often early, often more than once.
+
+Telling these engineers that the future of their role is the AI Operator role is not a neutral re-skilling ask. For a meaningful subset of them, it is asking them to do the job they specifically chose engineering to avoid. The headwind is not just identity invested in a craft that is being commoditized. It is something closer to revulsion at the shape of the new craft. They watched their colleagues take the management track and concluded they did not want to do that work. The agentic regime is implying to them they have to do it anyway; or worse they find themselves being challenged, expectations of success being placed upon them and become frustrated being told they're not using it right because nobody has explained that it isn't a tool to be leveraged in the course of the craft of software engineering. It's a phase shift in responsibilities and they're being asked to take a different role.
+
+## What's in a name?
+
+The asymmetric attribution pattern is what happens when someone is being moved into a role they did not choose and tries to defend the self-model they did.
+
+The engineer who claims credit for the win and externalizes the failure is not being dishonest. From the inside, they are being consistent with a self-model they have held their whole career: _I am a craftsman whose tools sometimes serve me and sometimes fail me_. In that model, tool success reflects the craftsman's skill in selecting and directing the tool. Tool failure reflects the tool's limitations. Both attributions point inward toward the craftsman as the locus of competence. The tool is set dressing.
+
+That self-model worked when the tool was a compiler or an IDE. The tool was deterministic, the craft of using it was visible, and nobody was confused about credit or blame. The model breaks under agents. Agents are non-deterministic, specification-sensitive, and capable of doing the actual work. The craftsman self-model cannot accommodate this without admitting that the locus of the work has moved off the craftsman and onto something else, and that the person who used to be a craftsman is now directing the thing that does the work. That is the admission the asymmetric attribution is refusing to make.
+
+This is why the pattern is so resistant to feedback. The engineer is not behaving badly on purpose. They are protecting an identity. Pointing at the behavior reads as a character accusation, and the conversation goes defensive immediately. They will tell you they are being entirely reasonable: the AI really did make a stupid mistake, and the working code really was their idea. From inside the craftsman model, both attributions are correct.
+
+The only way out is to update the self-model, not the behavior. Once the practitioner accepts that they are managing the work rather than doing it, the attribution rebalances on its own. Now the agent's failure is their failure of direction. The agent's success is their success of direction. The locus of accountability has moved, and the emotional response moves with it. This is not a behavioral fix. It is an identity update. Behavioral fixes layered on top of the old self-model produce performative humility that does not survive contact with the next failure.
+
+## What this means for leaders
+
+If you lead an engineering function, or a function with software engineering capability inside it, the asymmetric attribution pattern is one of the cleanest diagnostics you have for who is going to make the transition into the high-leveraged AI Operator role and who is not.
+
+It is more reliable than asking people about their disposition. Nobody self-reports as the kind of engineer who blames their tools. It is more reliable than tool fluency. The engineer who uses agentic tooling for six hours a day and externalizes every failure has not made the transition, regardless of usage metrics. It is more reliable than seniority, which we already know is a poor predictor and often a headwind.
+
+What you are looking for is the practitioner who, when an agent produces something wrong, reaches inward. What did I specify that produced this. What did I fail to enumerate. What about my direction would have to change for this to come out differently. That practitioner is doing the management work. They have updated the self-model, or they never held the old one tightly. They are going to be an effective AI Operator, and the trajectory of their effectiveness will be steep.
+
+The practitioner who reaches outward, who tells you the model is dumb or the tool is broken or the AI is unreliable, is telling you something important. Not that the tool is broken. That they are still in the craftsman self-model, and that the work of updating it has not started.
+
+The hard part, for those of us doing this transition at scale, is that the second practitioner is often the senior engineer. They have the deepest technical credentials, the strongest reputation, the most institutional weight. They are also, frequently, the ones least equipped for the AI Operator role, because they spent their careers building an identity that the new role is structured to dissolve.
+
+I do not have a clean answer for this. The honest framing, the one I have not seen anyone else say out loud, is that the transition into the AI Operator role is asking a large fraction of senior engineers to take a job they would have refused if offered it directly. Some will discover, to their own surprise, that they like the new shape of work. Some will adapt because they have to and find a workable equilibrium. Some will not adapt, and the most uncomfortable truth of this transition is that it is not because they cannot. It is because the new role is one they have already decided, sometimes decades ago, that they did not want.
+
+That is the conversation we are not yet having clearly with senior engineering talent. We owe it to them to have it.
