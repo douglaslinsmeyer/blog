@@ -1,0 +1,63 @@
+name: 📝 Article prompt
+description: A blog post or note to write later. One issue per topic.
+title: "[Idea] "
+labels: ["idea"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        One issue = one future post. Fill in what you have; refine the rest later.
+        Move the label through `idea` → `drafting` → `ready` → `published` as the
+        piece progresses. Close the issue once it's live on the site.
+
+  - type: input
+    id: working-title
+    attributes:
+      label: Working title
+      description: Doesn't have to be the final title. Just enough to find it later.
+      placeholder: e.g., Debugging distributed systems is mostly social
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: What it's about
+      description: One or two sentences. The thesis, hook, or angle.
+      placeholder: e.g., A note on why production debugging is more about communication than tooling.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options:
+        - long-form post
+        - short note
+      default: 0
+    validations:
+      required: true
+
+  - type: input
+    id: tags
+    attributes:
+      label: Likely tags
+      description: Comma-separated. Final tags can change.
+      placeholder: e.g., debugging, distributed-systems
+
+  - type: textarea
+    id: outline
+    attributes:
+      label: Outline / notes
+      description: Bullet list, key points, references, code snippets to use. Optional.
+      placeholder: |
+        - The bug wasn't in the code, it was in the assumptions between services
+        - Story: that 3am page in 2024
+        - Link: <some reference>
+
+  - type: textarea
+    id: related
+    attributes:
+      label: Related ideas
+      description: Links to other issues, posts, or references that connect. Optional.
