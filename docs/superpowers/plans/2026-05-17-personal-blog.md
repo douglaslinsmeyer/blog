@@ -417,7 +417,8 @@ Expected: three `.woff2` files, each between 50 KB and 400 KB.
 
 @font-face {
   font-family: 'Source Serif 4';
-  src: url('/fonts/source-serif-4-variable.woff2') format('woff2-variations');
+  src: url('/fonts/source-serif-4-variable.woff2') format('woff2-variations'),
+       url('/fonts/source-serif-4-variable.woff2') format('woff2');
   font-weight: 200 900;
   font-display: swap;
   font-style: normal;
@@ -425,7 +426,8 @@ Expected: three `.woff2` files, each between 50 KB and 400 KB.
 
 @font-face {
   font-family: 'JetBrains Mono';
-  src: url('/fonts/jetbrains-mono-variable.woff2') format('woff2-variations');
+  src: url('/fonts/jetbrains-mono-variable.woff2') format('woff2-variations'),
+       url('/fonts/jetbrains-mono-variable.woff2') format('woff2');
   font-weight: 100 800;
   font-display: swap;
   font-style: normal;
@@ -433,7 +435,8 @@ Expected: three `.woff2` files, each between 50 KB and 400 KB.
 
 @font-face {
   font-family: 'Inter';
-  src: url('/fonts/inter-variable.woff2') format('woff2-variations');
+  src: url('/fonts/inter-variable.woff2') format('woff2-variations'),
+       url('/fonts/inter-variable.woff2') format('woff2');
   font-weight: 100 900;
   font-display: swap;
   font-style: normal;
@@ -456,7 +459,7 @@ Expected: three `.woff2` files, each between 50 KB and 400 KB.
   --bg: #15151a;
   --text: #e8e6df;
   --muted: #8a8a8a;
-  --rule: #2a2a2a;
+  --rule: #3a3a40;     /* ~2.5:1 against --bg, visible on OLED */
   --accent: #c97a6f;
   --tint: rgba(255, 255, 255, 0.05);
 }
