@@ -6,7 +6,7 @@
 
 **Architecture:** Astro static site, scaffolded from the official `blog` template and customized. Content Collections (Content Layer API) for posts and notes with Zod-validated schemas. GitHub Actions builds and deploys to GitHub Pages with the modern "GitHub Actions" Pages source. Custom domain via DNS at Cloudflare (already configured).
 
-**Tech Stack:** Astro 5.x, MDX, TypeScript, Shiki (built-in syntax highlighting), `satori` + `@resvg/resvg-js` for OG image generation, GitHub Actions (`withastro/action@v3` + `actions/deploy-pages@v4`), Node 22 LTS.
+**Tech Stack:** Astro 6.x, MDX, TypeScript, Shiki (built-in syntax highlighting), `satori` + `@resvg/resvg-js` for OG image generation, GitHub Actions (`withastro/action@v3` + `actions/deploy-pages@v4`), Node 24 LTS.
 
 **Spec reference:** `docs/superpowers/specs/2026-05-17-personal-blog-design.md`
 
@@ -18,7 +18,7 @@
 
 Each task ends with build verification and a commit.
 
-**Note on spec divergence:** The spec lists `src/content/config.ts` (Astro 4 location). Astro 5's recommended location is `src/content.config.ts`. The plan uses the Astro 5 location.
+**Note on spec divergence:** The spec lists `src/content/config.ts` (Astro 4 location). Astro 5+/6 recommended location is `src/content.config.ts`. The plan uses the modern location.
 
 ---
 
@@ -94,12 +94,12 @@ blog/
 
 The existing repo has only `docs/`, `.gitignore`, and `.git/`. `npm create astro` may refuse to scaffold into a non-empty directory. We'll bootstrap in a temp directory and copy the files over.
 
-- [ ] **Step 1: Verify Node 22 is available**
+- [ ] **Step 1: Verify Node 24 is available**
 
 ```bash
 node --version
 ```
-Expected: `v22.x.x`. If not, install via `nvm install 22 && nvm use 22` or `brew install node@22`.
+Expected: `v24.x.x` (any v24 release; latest LTS is v24.15.0 "Krypton"). If not, install via `nvm install 24 && nvm use 24` or `brew install node@24`. Astro 6 requires Node ≥22.12.0, so any active LTS works, but the project pins to 24.
 
 - [ ] **Step 2: Bootstrap Astro blog template in a temp directory**
 
@@ -137,10 +137,10 @@ cat .gitignore
 ```
 Expected: file contains `.superpowers/`, `node_modules/`, `dist/`, `.astro/`, etc.
 
-- [ ] **Step 5: Create `.nvmrc` pinning Node 22**
+- [ ] **Step 5: Create `.nvmrc` pinning Node 24**
 
 ```bash
-echo "22" > .nvmrc
+echo "24" > .nvmrc
 ```
 
 - [ ] **Step 6: Install dependencies**
@@ -227,10 +227,10 @@ Expected: prints Astro version (5.x) and config info without errors.
 
 ```bash
 git add -A
-git commit -m "Bootstrap Astro 5 project from blog template
+git commit -m "Bootstrap Astro 6 project from blog template
 
 - Scaffold from npm create astro@latest --template blog
-- Pin Node 22 via .nvmrc
+- Pin Node 24 LTS via .nvmrc
 - Configure astro.config.mjs with site URL, MDX, sitemap, dual Shiki themes
 - Add 'check' script and gate build on astro check
 - Prune template's example content/pages (we replace these in later tasks)"
@@ -2318,7 +2318,7 @@ jobs:
       - name: Build with Astro
         uses: withastro/action@v3
         with:
-          node-version: 22
+          node-version: 24
           # The action runs `npm ci` and `astro build` by default; our
           # build script also runs `astro check` first via npm.
           package-manager: npm@latest

@@ -6,7 +6,7 @@
 
 ## Overview
 
-A personal blog at `douglaslinsmeyer.com` hosting a mix of long-form technical essays and short notes. Built with Astro 5.x, deployed via GitHub Actions to GitHub Pages. Editorial-minimalist design — serif typography, generous whitespace, content-first. No analytics, no comments, no third-party tracking in the baseline.
+A personal blog at `douglaslinsmeyer.com` hosting a mix of long-form technical essays and short notes. Built with Astro 6.x, deployed via GitHub Actions to GitHub Pages. Editorial-minimalist design — serif typography, generous whitespace, content-first. No analytics, no comments, no third-party tracking in the baseline.
 
 The author is a software engineer; the site must handle code snippets beautifully.
 
@@ -29,11 +29,11 @@ The author is a software engineer; the site must handle code snippets beautifull
 
 | Layer | Choice | Why |
 |------|--------|-----|
-| Framework | Astro 5.x | Static-first, minimal JS shipped, MDX support, Shiki syntax highlighting built in |
+| Framework | Astro 6.x | Static-first, minimal JS shipped, MDX support, Shiki syntax highlighting built in |
 | Content authoring | MDX (posts) + Markdown (notes) | MDX leaves the door open for interactive components in essays without bloating notes |
 | Hosting | GitHub Pages | Free, custom-domain friendly, integrates with Actions |
 | CI/CD | GitHub Actions (`withastro/action@v3` + `actions/deploy-pages@v4`) | Official supported path; modern "GitHub Actions" Pages source (not `gh-pages` branch) |
-| Node | 22 LTS, pinned via `.nvmrc` | Current LTS as of May 2026 |
+| Node | 24 LTS ("Krypton"), pinned via `.nvmrc` | Newest LTS as of May 2026 (released April 2026) |
 | Language | TypeScript | Astro components and `src/content/config.ts` schema |
 
 **Scaffold:** Start from `npm create astro@latest -- --template blog`. Strip its styling and templates; keep its content collections structure as a baseline. Rebuild layouts/components to match the editorial design.
