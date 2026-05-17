@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Not found" description="That page doesn't exist.">
+  <article class="page-404">
+    <p class="small-caps">404 · Not found</p>
+    <h1>That page isn't here.</h1>
+    <p>
+      The page you were looking for either moved, never existed, or was a typo.
+    </p>
+    <p>
+      Try the <a href="/">home page</a> or browse <a href="/posts/">all posts</a>.
+    </p>
+  </article>
+
+  <style>
+    .page-404 { padding: 3rem 0; }
+    .page-404 h1 { font-size: 1.75rem; margin: 0.5rem 0 1rem; }
+  </style>
+</BaseLayout>
