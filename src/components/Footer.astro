@@ -36,7 +36,7 @@ const year = new Date().getFullYear();
     color: var(--muted);
     text-decoration: none;
   }
-  .site-footer__links a:hover {
+  .site-footer__links a:is(:hover, :focus-visible) {
     color: var(--text);
     text-decoration: underline;
     text-underline-offset: 4px;

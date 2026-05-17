@@ -682,7 +682,7 @@ import ThemeToggle from './ThemeToggle.astro';
     color: var(--text);
     text-decoration: none;
   }
-  .site-header__brand:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .site-header__brand:is(:hover, :focus-visible) { text-decoration: underline; text-underline-offset: 4px; }
   .site-header__nav {
     display: flex;
     align-items: baseline;
@@ -694,7 +694,7 @@ import ThemeToggle from './ThemeToggle.astro';
     color: var(--muted);
     text-decoration: none;
   }
-  .site-header__nav a:hover {
+  .site-header__nav a:is(:hover, :focus-visible) {
     color: var(--text);
     text-decoration: underline;
     text-underline-offset: 4px;
@@ -743,7 +743,7 @@ const year = new Date().getFullYear();
     color: var(--muted);
     text-decoration: none;
   }
-  .site-footer__links a:hover {
+  .site-footer__links a:is(:hover, :focus-visible) {
     color: var(--text);
     text-decoration: underline;
     text-underline-offset: 4px;
