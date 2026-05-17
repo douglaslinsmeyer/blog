@@ -1,63 +1,24 @@
-# Astro Starter Kit: Blog
+# Personal blog
 
-```sh
-npm create astro@latest -- --template blog
+Source for [douglaslinsmeyer.com](https://douglaslinsmeyer.com). Built with Astro 6, hosted on GitHub Pages.
+
+## Develop
+
+```bash
+nvm use            # Node 24 (per .nvmrc)
+npm install
+npm run dev        # localhost:4321, drafts visible
+npm run build      # astro check + astro build (CI runs this)
+npm run preview    # serve the production build locally
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Publish
 
-Features:
+Posts live in `src/content/posts/*.mdx`. Notes live in `src/content/notes/*.md`. Push to `main`; the GitHub Actions workflow builds and deploys to GitHub Pages.
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and Open Graph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+A post with `draft: true` in its frontmatter is excluded from production builds but visible in `npm run dev`.
 
-## 🚀 Project Structure
+## Reference
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+- Design spec: [`docs/superpowers/specs/2026-05-17-personal-blog-design.md`](docs/superpowers/specs/2026-05-17-personal-blog-design.md)
+- Implementation plan: [`docs/superpowers/plans/2026-05-17-personal-blog.md`](docs/superpowers/plans/2026-05-17-personal-blog.md)

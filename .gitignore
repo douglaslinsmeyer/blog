@@ -13,6 +13,6 @@ dist/
 .DS_Store
 
 # Editor
-.vscode/
+# (note: .vscode/extensions.json IS tracked — recommends the Astro VSCode extension)
 .idea/
 *.swp

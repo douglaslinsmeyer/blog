@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Build and deploy a personal blog at `douglaslinsmeyer.com` using Astro 5.x on GitHub Pages, matching the editorial-minimalist design in the approved spec.
+**Goal:** Build and deploy a personal blog at `douglaslinsmeyer.com` using Astro 6.x on GitHub Pages, matching the editorial-minimalist design in the approved spec.
 
 **Architecture:** Astro static site, scaffolded from the official `blog` template and customized. Content Collections (Content Layer API) for posts and notes with Zod-validated schemas. GitHub Actions builds and deploys to GitHub Pages with the modern "GitHub Actions" Pages source. Custom domain via DNS at Cloudflare (already configured).
 
@@ -221,7 +221,7 @@ Note: with `src/content.config.ts` and `src/pages/` empty, `astro check` may com
 ```bash
 npx astro info
 ```
-Expected: prints Astro version (5.x) and config info without errors.
+Expected: prints Astro version (6.x) and config info without errors.
 
 - [ ] **Step 11: Commit**
 
@@ -296,7 +296,7 @@ Expected: generates `.astro/` types for the collections without error. Collectio
 git add src/content.config.ts src/content/
 git commit -m "Define posts and notes Content Collections
 
-Astro 5 Content Layer API with glob loader.
+Astro 6 Content Layer API with glob loader.
 - posts: title, date, summary, tags (required), draft
 - notes: date, optional title, optional tags, draft
 
