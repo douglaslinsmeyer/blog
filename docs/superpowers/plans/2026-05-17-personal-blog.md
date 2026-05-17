@@ -248,8 +248,9 @@ git commit -m "Bootstrap Astro 6 project from blog template
 Create `src/content.config.ts`:
 
 ```ts
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 const posts = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/posts' }),
@@ -276,6 +277,8 @@ export const collections = { posts, notes };
 ```
 
 Why `z.coerce.date()`: YAML frontmatter dates parse as strings or Date objects depending on quoting. Coercion handles both.
+
+Note on imports: Astro 6 deprecates `z` re-exported from `astro:content`. Import `z` from `astro/zod` directly, per the v6 upgrade guide.
 
 - [ ] **Step 2: Create the directories so the glob loader has somewhere to look**
 
