@@ -1,7 +1,32 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import NoteCard from '../components/NoteCard.astro';
+import { getCombinedFeed } from '../lib/feed';
+
+const feed = await getCombinedFeed();
+const homeItems = feed.slice(0, 20);
 ---
-<BaseLayout title="Douglas Linsmeyer">
-  <h1>Hello, world</h1>
-  <p>If you can read this, the BaseLayout works.</p>
+<BaseLayout title="Douglas Linsmeyer" description="Posts and notes by Douglas Linsmeyer.">
+  {homeItems.length === 0 && <p>Nothing here yet.</p>}
+
+  {homeItems.map((item) => (
+    item.kind === 'post' ? (
+      <PostCard
+        slug={item.entry.id}
+        title={item.entry.data.title}
+        date={item.entry.data.date}
+        summary={item.entry.data.summary}
+        tags={item.entry.data.tags}
+      />
+    ) : (
+      <NoteCard entry={item.entry} />
+    )
+  ))}
+
+  {feed.length > 20 && (
+    <p style="margin-top: 2rem;">
+      <a href="/posts/">All posts →</a>
+    </p>
+  )}
 </BaseLayout>
