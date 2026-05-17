@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import NoteCard from '../../components/NoteCard.astro';
+import TagPill from '../../components/TagPill.astro';
+import { getAllPosts, getAllNotes } from '../../lib/feed';
+
+export async function getStaticPaths() {
+  const [posts, notes] = await Promise.all([getAllPosts(), getAllNotes()]);
+  const tagSet = new Set<string>();
+  for (const p of posts) for (const t of p.data.tags) tagSet.add(t);
+  for (const n of notes) for (const t of (n.data.tags ?? [])) tagSet.add(t);
+  return [...tagSet].map((tag) => ({
+    params: { tag },
+    props: {
+      tag,
+      posts: posts.filter((p) => p.data.tags.includes(tag)),
+      notes: notes.filter((n) => (n.data.tags ?? []).includes(tag)),
+    },
+  }));
+}
+
+const { tag, posts, notes } = Astro.props;
+type Item =
+  | { kind: 'post'; entry: typeof posts[number] }
+  | { kind: 'note'; entry: typeof notes[number] };
+const items: Item[] = [
+  ...posts.map((entry) => ({ kind: 'post' as const, entry })),
+  ...notes.map((entry) => ({ kind: 'note' as const, entry })),
+].sort((a, b) => b.entry.data.date.valueOf() - a.entry.data.date.valueOf());
+---
+<BaseLayout title={`Tagged: ${tag}`} description={`Posts and notes tagged ${tag}.`}>
+  <header class="page-header">
+    <p class="small-caps">Tag</p>
+    <h1>
+      <TagPill tag={tag} active />
+    </h1>
+    <p class="muted">{items.length} item{items.length === 1 ? '' : 's'}</p>
+  </header>
+
+  {items.length === 0 && <p>Nothing here yet.</p>}
+
+  {items.map((item) => (
+    item.kind === 'post' ? (
+      <PostCard
+        slug={item.entry.id}
+        title={item.entry.data.title}
+        date={item.entry.data.date}
+        summary={item.entry.data.summary}
+        tags={item.entry.data.tags}
+      />
+    ) : (
+      <NoteCard entry={item.entry} />
+    )
+  ))}
+
+  <footer style="margin-top:2rem;">
+    <p class="small-caps"><a href="/tags/">← All tags</a></p>
+  </footer>
+
+  <style>
+    .page-header { margin-bottom: 1.5rem; }
+    .page-header h1 { font-size: 1.6rem; margin: 0.2rem 0; }
+  </style>
+</BaseLayout>
