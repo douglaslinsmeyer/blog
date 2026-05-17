@@ -1,0 +1,59 @@
+/* ============================================================
+   Shiki dual-theme bridge
+   Shiki emits inline styles using --shiki-light/--shiki-dark
+   for each token; we control which variant is active via
+   data-theme on <html>.
+   ============================================================ */
+
+:root[data-theme='light'] {
+  --astro-code-background: #ffffff;
+  --astro-code-foreground: #24292e;
+}
+
+:root[data-theme='dark'] {
+  --astro-code-background: #22272e;
+  --astro-code-foreground: #adbac7;
+}
+
+/* Activate the matching Shiki theme tokens */
+:root[data-theme='light'] pre.astro-code,
+:root[data-theme='light'] pre.astro-code span {
+  color: var(--shiki-light) !important;
+  background-color: var(--shiki-light-bg) !important;
+  font-style: var(--shiki-light-font-style) !important;
+  font-weight: var(--shiki-light-font-weight) !important;
+  text-decoration: var(--shiki-light-text-decoration) !important;
+}
+
+:root[data-theme='dark'] pre.astro-code,
+:root[data-theme='dark'] pre.astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+}
+
+/* Surround code blocks with our editorial rule treatment */
+pre.astro-code {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 1rem 1.1rem;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  position: relative;
+}
+
+/* Language label in the corner (visible when set via meta on the code fence) */
+pre.astro-code[data-language]::before {
+  content: attr(data-language);
+  position: absolute;
+  top: 0.4rem;
+  right: 0.6rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  pointer-events: none;
+}
